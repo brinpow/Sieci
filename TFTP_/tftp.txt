@@ -1,0 +1,2 @@
+atftp --put -l /dev/null -r a.txt localhost 6996
+atftpd --logfile - --user brinpow --group brinpow --trace --daemon --no-fork --port 6996 TFTP
