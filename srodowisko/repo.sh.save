@@ -1,0 +1,10 @@
+#!/bin/bash
+x="$(apt list --installed)"
+y="$( while IFS= read -r line ; do line=${line%%/*} ; echo "$line" ; done <<< "$x" | uniq )"
+z="$( apt show $y)"
+v="$( echo "$z"| grep 'Package\|APT-Sources'| sort | uniq )"
+w="$( echo "$z"| grep APT-Sources'| sort | uniq )"
+//while IFS= read -r line1 ;
+// do 
+//done <<< "$v"
+echo "$v"

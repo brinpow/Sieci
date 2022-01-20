@@ -1,0 +1,17 @@
+CMAKE_MINIMUM_REQUIRED( VERSION 3.0 )
+
+IF( NOT CMAKE_BUILD_TYPE )
+    SET( CMAKE_BUILD_TYPE Release )
+ENDIF()
+
+PROJECT( picosat LANGUAGES C VERSION 965 )
+
+SET( CMAKE_C_STANDARD 99 )
+
+SET( CMAKE_VERBOSE_MAKEFILE on )
+
+SET( CMAKE_CXX_FLAGS "-Wall -Wextra -Wpedantic -pthread -ggdb" )
+SET( CMAKE_CXX_FLAGS_DEBUG "" )
+SET( CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG -O3 -funroll-loops" )
+
+ADD_EXECUTABLE( picosat main.c app.c picosat.c version.c )
